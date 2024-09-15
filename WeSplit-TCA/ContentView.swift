@@ -1,3 +1,7 @@
+//
+//  Public Domain --- See License file for details
+//
+
 import SwiftUI
 
 struct ContentView: View {

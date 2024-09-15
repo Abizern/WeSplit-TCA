@@ -1,8 +1,5 @@
 //
-//  WeSplitApp.swift
-//  WeSplit
-//
-//  Created by Abizer Nasir on 15/09/2024.
+//  Public Domain --- See License file for details
 //
 
 import SwiftUI
