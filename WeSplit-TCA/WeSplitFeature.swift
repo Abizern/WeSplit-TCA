@@ -6,19 +6,12 @@ import ComposableArchitecture
 import SwiftUI
 
 @Reducer
-struct WeSplitFeature {
+struct WeSplit {
     @ObservableState
     struct State: Equatable {
-        var checkAmount = 0.0
-        var numberOfPeople = 2
+        var checkAmount: Double = 0.0
+        var numberOfPeople: Int = 2
         var tipType: TipType = .medium
-
-        var grandTotal: Double {
-            return checkAmount * tipType.scaleFactor
-        }
-        var totalPerPerson: Double {
-            return grandTotal / Double(numberOfPeople)
-        }
     }
 
     enum Action: BindableAction {
@@ -38,7 +31,15 @@ struct WeSplitFeature {
 
 
 struct WeSplitView: View {
-    @Bindable var store: StoreOf<WeSplitFeature>
+    @Bindable var store: StoreOf<WeSplit>
+
+    private var grandTotal: Double {
+        return store.checkAmount * store.tipType.scaleFactor
+    }
+
+    private var totalPerPerson: Double {
+        return grandTotal / Double(store.numberOfPeople)
+    }
 
     var body: some View {
         NavigationStack {
@@ -56,11 +57,11 @@ struct WeSplitView: View {
                 }
                 
                 Section("Total Amount") {
-                    Text(store.grandTotal, format: .currency(code: "GBP"))
+                    Text(grandTotal, format: .currency(code: "GBP"))
                 }
                 
                 Section("Amount per person") {
-                    Text(store.totalPerPerson, format: .currency(code: "GBP"))
+                    Text(totalPerPerson, format: .currency(code: "GBP"))
                 }
             }
             .navigationTitle("We Split")
@@ -70,8 +71,8 @@ struct WeSplitView: View {
 
 #Preview {
     WeSplitView(
-        store: Store( initialState: WeSplitFeature.State()) {
-            WeSplitFeature()
+        store: Store( initialState: WeSplit.State()) {
+            WeSplit()
         }
     )
 }

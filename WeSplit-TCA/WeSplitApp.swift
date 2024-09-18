@@ -10,8 +10,8 @@ struct WeSplitApp: App {
     var body: some Scene {
         WindowGroup {
             WeSplitView(
-                store: Store(initialState: WeSplitFeature.State()) {
-                    WeSplitFeature()._printChanges()
+                store: Store(initialState: WeSplit.State()) {
+                    WeSplit()._printChanges()
                 }
             )
         }

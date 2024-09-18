@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-enum TipType: CustomStringConvertible, CaseIterable, Identifiable{
+enum TipType: CustomStringConvertible, CaseIterable, Identifiable, Equatable {
     case none
     case low
     case medium
