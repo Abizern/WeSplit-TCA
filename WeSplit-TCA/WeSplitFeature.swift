@@ -52,7 +52,7 @@ struct WeSplitView: View {
                 }
                 
                 Section("How much do you want to tip?") {
-                    TipPicker(tip: $store.tipType)
+                    TipPickerView(tip: $store.tipType)
                 }
                 
                 Section("Total Amount") {

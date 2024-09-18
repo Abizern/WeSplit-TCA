@@ -34,7 +34,7 @@ enum TipType: CustomStringConvertible, CaseIterable, Identifiable{
     }
 }
 
-struct TipPicker: View {
+struct TipPickerView: View {
     @Binding var tip: TipType
 
     var body: some View {
@@ -50,6 +50,6 @@ struct TipPicker: View {
 #Preview {
     @Previewable @State var tip: TipType = .medium
     Form {
-        TipPicker(tip: $tip)
+        TipPickerView(tip: $tip)
     }
 }

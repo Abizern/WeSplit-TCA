@@ -43,7 +43,7 @@ struct TipPickerSnapshotTests {
     @MainActor
     @Test func mediumTipView() {
         let view = Form {
-            TipPicker(tip: .constant(.medium))
+            TipPickerView(tip: .constant(.medium))
         }
         let vc = UIHostingController(rootView: view)
         assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
