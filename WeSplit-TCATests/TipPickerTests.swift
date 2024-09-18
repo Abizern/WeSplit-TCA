@@ -2,11 +2,11 @@
 //  Public Domain --- See License file for details
 //
 
+import SwiftUI
 import Testing
-import UIKit
 @_spi(Experimental) import SnapshotTesting
 @testable import WeSplit_TCA
-import SwiftUI
+
 
 private let tipDescriptions: [(TipType, String)] = [
     (.none, "0%"),
@@ -42,7 +42,9 @@ struct TipPickerTests {
 struct TipPickerSnapshotTests {
     @MainActor
     @Test func mediumTipView() {
-        let view = TipPicker(tip: .constant(.medium))
+        let view = Form {
+            TipPicker(tip: .constant(.medium))
+        }
         let vc = UIHostingController(rootView: view)
         assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
     }

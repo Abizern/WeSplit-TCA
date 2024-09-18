@@ -48,9 +48,8 @@ struct TipPicker: View {
 }
 
 #Preview {
-    NavigationStack {
+    Form {
         TipPicker(tip: .constant(.medium))
     }
-    .navigationTitle("Tip Picker")
 
 }
