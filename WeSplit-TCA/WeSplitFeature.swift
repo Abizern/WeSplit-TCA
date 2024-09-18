@@ -10,10 +10,10 @@ struct WeSplitFeature {
     struct State: Equatable {
         var checkAmount = 0.0
         var numberOfPeople = 2
-        var tipPercentage = 20
+        var tipType: TipType = .medium
+
         var grandTotal: Double {
-            let tipIncrement = 1 + Double(tipPercentage) / 100
-            return checkAmount * tipIncrement
+            return checkAmount * tipType.scaleFactor
         }
         var totalPerPerson: Double {
             return grandTotal / Double(numberOfPeople)

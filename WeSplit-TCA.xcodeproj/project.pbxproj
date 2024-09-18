@@ -8,13 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		AD9907C12C96EA1000604296 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = AD9907C02C96EA1000604296 /* ComposableArchitecture */; };
+		ADE412662C9AF26100BBB67D /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = ADE412652C9AF26100BBB67D /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AD6936D22C99C493001A78CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD9907A62C96E66E00604296 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD9907AD2C96E66E00604296;
+			remoteInfo = "WeSplit-TCA";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AD6936CE2C99C493001A78CD /* WeSplit-TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WeSplit-TCATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9907AE2C96E66E00604296 /* WeSplit-TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeSplit-TCA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		AD6936CF2C99C493001A78CD /* WeSplit-TCATests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "WeSplit-TCATests";
+			sourceTree = "<group>";
+		};
 		AD9907B02C96E66E00604296 /* WeSplit-TCA */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "WeSplit-TCA";
@@ -23,6 +40,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AD6936CB2C99C493001A78CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADE412662C9AF26100BBB67D /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD9907AB2C96E66E00604296 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AD9907B02C96E66E00604296 /* WeSplit-TCA */,
+				AD6936CF2C99C493001A78CD /* WeSplit-TCATests */,
 				AD9907AF2C96E66E00604296 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				AD9907AE2C96E66E00604296 /* WeSplit-TCA.app */,
+				AD6936CE2C99C493001A78CD /* WeSplit-TCATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,6 +80,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AD6936CD2C99C493001A78CD /* WeSplit-TCATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD6936D42C99C493001A78CD /* Build configuration list for PBXNativeTarget "WeSplit-TCATests" */;
+			buildPhases = (
+				AD6936CA2C99C493001A78CD /* Sources */,
+				AD6936CB2C99C493001A78CD /* Frameworks */,
+				AD6936CC2C99C493001A78CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD6936D32C99C493001A78CD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AD6936CF2C99C493001A78CD /* WeSplit-TCATests */,
+			);
+			name = "WeSplit-TCATests";
+			packageProductDependencies = (
+				ADE412652C9AF26100BBB67D /* SnapshotTesting */,
+			);
+			productName = "WeSplit-TCATests";
+			productReference = AD6936CE2C99C493001A78CD /* WeSplit-TCATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AD9907AD2C96E66E00604296 /* WeSplit-TCA */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD9907BC2C96E67000604296 /* Build configuration list for PBXNativeTarget "WeSplit-TCA" */;
@@ -86,6 +137,10 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					AD6936CD2C99C493001A78CD = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = AD9907AD2C96E66E00604296;
+					};
 					AD9907AD2C96E66E00604296 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -102,6 +157,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				AD9907BF2C96EA1000604296 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				ADE412642C9AF26100BBB67D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AD9907AF2C96E66E00604296 /* Products */;
@@ -109,11 +165,19 @@
 			projectRoot = "";
 			targets = (
 				AD9907AD2C96E66E00604296 /* WeSplit-TCA */,
+				AD6936CD2C99C493001A78CD /* WeSplit-TCATests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AD6936CC2C99C493001A78CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD9907AC2C96E66E00604296 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,6 +188,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AD6936CA2C99C493001A78CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD9907AA2C96E66E00604296 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,7 +204,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AD6936D32C99C493001A78CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD9907AD2C96E66E00604296 /* WeSplit-TCA */;
+			targetProxy = AD6936D22C99C493001A78CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AD6936D52C99C493001A78CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HKX3CMJ2Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.abizern.WeSplit-TCATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeSplit-TCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeSplit-TCA";
+			};
+			name = Debug;
+		};
+		AD6936D62C99C493001A78CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HKX3CMJ2Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.abizern.WeSplit-TCATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeSplit-TCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WeSplit-TCA";
+			};
+			name = Release;
+		};
 		AD9907BA2C96E67000604296 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -260,7 +375,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeSplit-TCA/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2HKX3CMJ2Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -293,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeSplit-TCA/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2HKX3CMJ2Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -322,6 +437,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AD6936D42C99C493001A78CD /* Build configuration list for PBXNativeTarget "WeSplit-TCATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD6936D52C99C493001A78CD /* Debug */,
+				AD6936D62C99C493001A78CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AD9907A92C96E66E00604296 /* Build configuration list for PBXProject "WeSplit-TCA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -351,6 +475,14 @@
 				minimumVersion = 1.15.0;
 			};
 		};
+		ADE412642C9AF26100BBB67D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -358,6 +490,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AD9907BF2C96EA1000604296 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		ADE412652C9AF26100BBB67D /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADE412642C9AF26100BBB67D /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
