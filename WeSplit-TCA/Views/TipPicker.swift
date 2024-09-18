@@ -52,5 +52,4 @@ struct TipPicker: View {
     Form {
         TipPicker(tip: $tip)
     }
-
 }

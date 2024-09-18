@@ -11,7 +11,7 @@ struct WeSplitApp: App {
         WindowGroup {
             WeSplitView(
                 store: Store(initialState: WeSplitFeature.State()) {
-                    WeSplitFeature()
+                    WeSplitFeature()._printChanges()
                 }
             )
         }
