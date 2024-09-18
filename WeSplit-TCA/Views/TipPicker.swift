@@ -48,8 +48,9 @@ struct TipPicker: View {
 }
 
 #Preview {
+    @Previewable @State var tip: TipType = .medium
     Form {
-        TipPicker(tip: .constant(.medium))
+        TipPicker(tip: $tip)
     }
 
 }
