@@ -10,12 +10,18 @@ struct WeSplit {
     @ObservableState
     struct State: Equatable {
         var checkAmount: Double = 0.0
+        var focusedField: Field?
         var numberOfPeople: Int = 2
         var tipType: TipType = .medium
+
+        enum Field: String, Hashable {
+            case checkAmount
+        }
     }
 
     enum Action: BindableAction {
         case binding(BindingAction<State>)
+        case doneButtonTapped
     }
 
     var body: some Reducer<State, Action> {
@@ -24,7 +30,12 @@ struct WeSplit {
             switch action {
             case .binding:
                 return .none
+            case .doneButtonTapped:
+                state.focusedField = nil
+                return .none
             }
+
+
         }
     }
 }
@@ -32,6 +43,7 @@ struct WeSplit {
 
 struct WeSplitView: View {
     @Bindable var store: StoreOf<WeSplit>
+    @FocusState var focusedField: WeSplit.State.Field?
     @Dependency(\.locale) var locale
 
     private var grandTotal: Double {
@@ -53,7 +65,8 @@ struct WeSplitView: View {
                     TextField("Amount", value: $store.checkAmount, format: .currency(code: currencyIdentifier)
                     )
                     .keyboardType((.decimalPad))
-                    
+                    .focused($focusedField, equals: .checkAmount)
+
                     PartySizePickerView(partySize: $store.numberOfPeople)
                 }
                 
@@ -71,7 +84,15 @@ struct WeSplitView: View {
                     )
                 }
             }
+            .bind($store.focusedField, to:$focusedField)
             .navigationTitle("We Split")
+            .toolbar {
+                if focusedField == .checkAmount {
+                    Button("Done") {
+                        store.send(.doneButtonTapped)
+                    }
+                }
+            }
         }
     }
 }

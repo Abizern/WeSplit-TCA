@@ -15,6 +15,7 @@ struct WeSplitTests {
         let state = WeSplit.State()
 
         #expect(state.checkAmount == 0.0)
+        #expect(state.focusedField == nil)
         #expect(state.numberOfPeople == 2)
         #expect(state.tipType == .medium)
     }
@@ -28,6 +29,14 @@ struct WeSplitTests {
             $0.checkAmount = 10.0
         }
 
+        await store.send(\.binding.focusedField, .checkAmount) {
+            $0.focusedField = .checkAmount
+        }
+
+        await store.send(.doneButtonTapped) {
+            $0.focusedField = nil
+        }
+
         await store.send(\.binding.numberOfPeople, 3) {
             $0.numberOfPeople = 3
         }
@@ -37,39 +46,49 @@ struct WeSplitTests {
         }
     }
 
-    @MainActor
-    @Test("Snapshot of initial screen", .tags(.snapshots))
-    func snapshotInitialScreen() {
-        let store =  Store(initialState: WeSplit.State()) {
-            WeSplit()
+    @Suite("WeSpilt Snapsshot tests", .tags(.snapshots), .snapshots(record: .missing, diffTool: .ksdiff))
+    struct WeSplitSnapshotsTests {
+        @MainActor
+        @Test("Snapshot of initial screen")
+        func snapshotInitialScreen() {
+            let store =  Store(initialState: WeSplit.State()) {
+                WeSplit()
+            }
+
+            let view = withDependencies {
+                $0.locale = Locale(identifier: "en_US")
+            } operation: {
+                WeSplitView(store: store)
+            }
+            let vc =  UIHostingController(rootView: view)
+
+            assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
+
         }
 
-        let view = withDependencies {
-            $0.locale = Locale(identifier: "en_US")
-        } operation: {
-            WeSplitView(store: store)
+        @MainActor
+        @Test("Snapshot of screen with entered values")
+        func snapshotWithEnteredValues() {
+            let store =  Store(
+                initialState: WeSplit.State(
+                    checkAmount: 200.0,
+                    focusedField: nil,
+                    numberOfPeople: 3,
+                    tipType: .good
+                )
+            ) {
+                WeSplit()
+            }
+
+            let view = withDependencies {
+                $0.locale = Locale(identifier: "en_US")
+            } operation: {
+                WeSplitView(store: store)
+            }
+            let vc =  UIHostingController(rootView: view)
+
+            assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
+
         }
-        let vc =  UIHostingController(rootView: view)
-
-        assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
-
-    }
-
-    @MainActor
-    @Test("Snapshot of screen with entered values", .tags(.snapshots))
-    func snapshotWithEnteredValues() {
-        let store =  Store(initialState: WeSplit.State(checkAmount: 200.0, numberOfPeople: 3, tipType: .good)) {
-            WeSplit()
-        }
-
-        let view = withDependencies {
-            $0.locale = Locale(identifier: "en_US")
-        } operation: {
-            WeSplitView(store: store)
-        }
-        let vc =  UIHostingController(rootView: view)
-
-        assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
-
     }
 }
