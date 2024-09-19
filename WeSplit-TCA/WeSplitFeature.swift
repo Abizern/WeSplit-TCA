@@ -32,6 +32,7 @@ struct WeSplit {
 
 struct WeSplitView: View {
     @Bindable var store: StoreOf<WeSplit>
+    @Dependency(\.locale) var locale
 
     private var grandTotal: Double {
         return store.checkAmount * store.tipType.scaleFactor
@@ -41,11 +42,15 @@ struct WeSplitView: View {
         return grandTotal / Double(store.numberOfPeople)
     }
 
+    private var currencyIdentifier: String {
+        locale.currency?.identifier ?? "USD"
+    }
+
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Amount", value: $store.checkAmount, format: .currency(code: "GBP")
+                    TextField("Amount", value: $store.checkAmount, format: .currency(code: currencyIdentifier)
                     )
                     .keyboardType((.decimalPad))
                     
@@ -57,11 +62,13 @@ struct WeSplitView: View {
                 }
                 
                 Section("Total Amount") {
-                    Text(grandTotal, format: .currency(code: "GBP"))
+                    Text(grandTotal, format: .currency(code: currencyIdentifier)
+                    )
                 }
                 
                 Section("Amount per person") {
-                    Text(totalPerPerson, format: .currency(code: "GBP"))
+                    Text(totalPerPerson, format: .currency(code: currencyIdentifier)
+                    )
                 }
             }
             .navigationTitle("We Split")
