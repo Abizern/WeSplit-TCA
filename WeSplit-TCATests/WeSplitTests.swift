@@ -19,10 +19,9 @@ struct WeSplitTests {
         #expect(state.tipType == .medium)
     }
 
-    @MainActor
     @Test("Basic bindings")
     func basicBindings() async {
-        let store = TestStore(initialState: WeSplit.State()) {
+        let store = await TestStore(initialState: WeSplit.State()) {
             WeSplit()
         }
         await store.send(\.binding.checkAmount, 10.0) {
@@ -36,5 +35,41 @@ struct WeSplitTests {
         await store.send(\.binding.tipType, TipType.great) {
             $0.tipType = .great
         }
+    }
+
+    @MainActor
+    @Test("Snapshot of initial screen", .tags(.snapshots))
+    func snapshotInitialScreen() {
+        let store =  Store(initialState: WeSplit.State()) {
+            WeSplit()
+        }
+
+        let view = withDependencies {
+            $0.locale = Locale(identifier: "en_US")
+        } operation: {
+            WeSplitView(store: store)
+        }
+        let vc =  UIHostingController(rootView: view)
+
+        assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
+
+    }
+
+    @MainActor
+    @Test("Snapshot of screen with entered values", .tags(.snapshots))
+    func snapshotWithEnteredValues() {
+        let store =  Store(initialState: WeSplit.State(checkAmount: 200.0, numberOfPeople: 3, tipType: .good)) {
+            WeSplit()
+        }
+
+        let view = withDependencies {
+            $0.locale = Locale(identifier: "en_US")
+        } operation: {
+            WeSplitView(store: store)
+        }
+        let vc =  UIHostingController(rootView: view)
+
+        assertSnapshot(of: vc, as: .image(on: .iPhone13Pro))
+
     }
 }
