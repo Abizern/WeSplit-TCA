@@ -13,3 +13,7 @@ The original was open source licenced, I'm carrying that over.
 ## Notes
 
 Fairly simple app - not sure that using TCA provides any extra benefits over the usual MVVM used with SwiftUI, but hey-ho.
+
+## TODO
+
+- [] Prevent invalid input (non-numeric, negative numbers...)
