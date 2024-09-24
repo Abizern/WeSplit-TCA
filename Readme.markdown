@@ -16,4 +16,4 @@ Fairly simple app - not sure that using TCA provides any extra benefits over the
 
 ## TODO
 
-- [] Prevent invalid input (non-numeric, negative numbers...)
+- [ ] Prevent invalid input (non-numeric, negative numbers...)
