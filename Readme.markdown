@@ -2,9 +2,9 @@
 
 The first example application From Hacking With Swift's 100 Days of SwiftUI re-written using [TCA](https://github.com/pointfreeco/swift-composable-architecture "TCA")
 
-The original source for this is [here](https://github.com/twostraws/HackingWithSwift/tree/main/SwiftUI/project1 "https://github.com/twostraws/HackingWithSwift/tree/main/SwiftUI/project1")
+The original source for this is [Paul Hudson's Hackiing With Swift](https://github.com/twostraws/HackingWithSwift/tree/main/SwiftUI/project1 "https://github.com/twostraws/HackingWithSwift/tree/main/SwiftUI/project1")
 
-The original was open source licences, I'm carrying that over.
+The original was open source licenced, I'm carrying that over.
 
 ## Notes
 
