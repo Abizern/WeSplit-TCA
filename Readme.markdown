@@ -6,6 +6,10 @@ The original source for this is [Paul Hudson's Hackiing With Swift](https://gith
 
 The original was open source licenced, I'm carrying that over.
 
+## Requirements
+
+- Xcode 16+. Not so much for the code, but the tests are written using Swift Testing.
+
 ## Notes
 
 Fairly simple app - not sure that using TCA provides any extra benefits over the usual MVVM used with SwiftUI, but hey-ho.
